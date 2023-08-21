@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:valid_auth_bloc/screens/home.dart';
+import 'package:valid_auth_bloc/screens/login_page.dart';
 import '../bloc/auth_bloc.dart';
 import '../bloc/auth_events.dart';
 import '../bloc/auth_states.dart';
@@ -59,15 +60,28 @@ class SignUpPage extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(height: 16),
-                      ElevatedButton(
-                        onPressed: () {
-                          authenticationBloc.add(SignUpButtonPressed(
-                            email: emailController.text,
-                            password: passwordController.text,
-                          ));
+                      Row(
+                        children: [
+                          ElevatedButton(
+                            onPressed: () {
+                              authenticationBloc.add(SignUpButtonPressed(
+                                email: emailController.text,
+                                password: passwordController.text,
+                              ));
 
-                        },
-                        child: const Text('Sign Up'),
+                            },
+                            child: const Text('Sign Up'),
+                          ),
+                          SizedBox(width: 8,),
+                          TextButton(
+                              onPressed: (){
+                                Navigator.push(context, MaterialPageRoute(builder: (context)=>LogInPage()));
+                              },
+                              child: Text('Already have an account',
+                              style: TextStyle(
+                                color: Colors.grey.withOpacity(0.5)
+                              ),))
+                        ],
                       ),
                     ],
                   ),
