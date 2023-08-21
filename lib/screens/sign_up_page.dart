@@ -61,6 +61,7 @@ class SignUpPage extends StatelessWidget {
                       ),
                       const SizedBox(height: 16),
                       Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           ElevatedButton(
                             onPressed: () {
